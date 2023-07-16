@@ -1,0 +1,666 @@
+body{
+    background-color:#0D0D0D;
+}
+
+button img{
+    width: 30px;
+    height: 30px;
+}
+  
+/*dropdown*/
+
+.form-dropdown {
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    width: 100%;
+    background-color: white;
+    text-align: left;
+}
+  
+.select-dropdown {
+    padding: 8px 38px 8px 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    color: #7c7c7c;
+}
+  
+.select-dropdown::-ms-expand {
+    display: none;
+}
+  
+.select-dropdown option {
+    font-size: 16px;
+    color: #000000;
+}
+  
+.select-dropdown:focus {
+    outline: none;
+    border-color: #6a5acd;
+}  
+
+/*menu*/
+
+nav {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+  
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+nav li {
+    float: left;
+    border-right: 1px solid #8F85A6;
+    float: right;
+}
+
+#logo {
+    margin: -10px;
+    border: none;
+    position: sticky;
+    float: left;
+}
+
+#logo img {
+    height: 40px;
+}
+  
+nav a {
+    display: block;
+    color: #8F85A6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    font-weight: bolder;
+}
+  
+nav a:hover {
+    background-color: #1E0F40;
+}
+  
+nav a.active {
+    background-color: #8F85A6;
+    color: white;
+}
+  
+nav a:active {
+    background-color: #8F85A6;
+}
+  
+nav a:focus {
+    outline: none;
+}
+  
+nav li:nth-child(1) a {
+    -webkit-animation: slideInDown 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+nav li:nth-child(2) a {
+    -webkit-animation: slideInDown 0.6s 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+nav li:nth-child(3) a {
+    -webkit-animation: slideInDown 0.6s 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+nav li:nth-child(4) a {
+    -webkit-animation: slideInDown 0.6s 0.45s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.45s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+nav li:nth-child(5) a {
+    -webkit-animation: slideInDown 0.6s 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+/*portfolio*/
+
+.port:nth-child(1) .perfil{
+    -webkit-animation: slideInDown 0.6s 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.port button:nth-child(2) .perfil{
+    -webkit-animation: slideInDown 0.6s 1.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 1.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.port ul img{
+    -webkit-animation: slideInDown 0.6s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: slideInDown 0.6s 0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+  
+@-webkit-keyframes slideInDown {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+}
+  
+@keyframes slideInDown {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+      opacity: 0;
+    }
+}
+
+.port{/*div*/
+    margin-top: 50px;
+    position:static;
+}
+
+
+.portfolio{/*img*/
+    height: 100px;
+    width: 100px;
+    padding: 100px;
+}
+
+.portp{ /*botao*/
+    border: 0px;
+    border-radius: 50%;
+    background-color: inherit;
+    margin: 10%;
+    margin-left: 20%;
+}
+
+.perfil{/*img*/
+    height: 150px;
+    width: 150px;
+}
+
+.perfil:hover{
+    cursor: pointer;
+}
+
+/*login / cadastro / orçamento*/
+.login-screen {
+    margin: auto;
+    margin-top: -600px;
+    align-content: center;
+    transition: transform 1s ease-in-out;
+    background-color: #f7e2f5;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.login-screen img{
+    width: 150px;
+    padding-top: 50px;
+}
+
+.login-screen h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #1E0F40;
+    letter-spacing: 0.05em;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    width: 95%;
+}
+  
+.submit{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #281D40;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 90%;
+}
+  
+.submit:hover {
+    background-color: #8F85A6;
+}
+
+.login-screen #ref {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.login-screen button{
+    border: 0;
+    background:none;
+}
+
+#inicial {
+    margin-top: 550px;
+    transition: transform 1s ease-in-out;
+}
+
+#inicial .temp{
+    width: 100%;
+}
+  
+/*tattos em destaque*/
+
+#galeria {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+}
+  
+#galeria img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+  
+#galeria img:hover {
+    transform: scale(1.2);
+}
+  
+/*sobre os tatuadores*/
+
+.container {
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding-right: 150px;
+}
+
+.tatuador {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content h2 {
+    color: #ccc;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.content p {
+    color: #ccc;
+    margin: 15px;
+    font-size: 16px;
+    max-width: 200px;
+    text-align: justify;
+}
+
+/*avaliações*/
+
+.avaliacoes{
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    padding: 70px;
+    margin: 50px;
+}
+
+.avaliacao{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.avaliacao img {
+    width: 50px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.avaliacao .aval{
+    display: block;
+    margin-top: 10px;
+}
+
+.avaliacoes #avl{
+    margin-top: -50px;
+    color: #ccc;
+}
+
+h3{
+    color: #ccc;
+}
+
+.avaliacoes .input{
+    margin-top: 30px;
+    width: 80%;
+    height: 40px;
+}
+
+.avaliacoes .submit{
+    width: 10%;
+    height: 60px;
+    background-color: #9D86BC;
+}
+
+.avaliacoes .submit:hover{
+    background-color: #281D40;
+}
+
+.avaliacao p{
+    max-width: 50%;
+    color: #ccc;
+}
+
+/*pg error*/
+
+.erro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.erro h1{
+    color: #ccc;
+}
+
+.erro img{
+    width: 100px;
+    display: inline-block
+}
+
+/*botoes ed*/
+  
+.adminButton{
+    width: 150px;
+    height: 60px;
+    background-color: #9d86bc00;
+    border-radius: 10%;
+    margin: 30px;
+    border: 2px solid #9d86bc;
+    color: #9d86bc;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.adminButton:hover{
+    background-color: #281D40;
+}
+
+.adminButton img{
+    border-radius: 0%;
+}
+
+#cad, #orç{
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #281D40;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 95%;
+}
+
+#orç a{
+    text-decoration: none;
+    color: #ccc;
+}
+  
+#cad:hover, #orç:hover {
+    background-color: #8F85A6;
+}
+
+/*orçamentos pendentes*/
+
+#pend{
+    width: 80%;
+}
+
+.pend {
+    display: inline-block;
+    background-color: #0D0D0D;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 5%;
+    width: 30%;
+    height: 20%;
+}
+  
+.pend h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ccc;
+    text-align: left;
+}
+  
+.pend p {
+    font-size: 20px;
+    color: #ccc;
+    text-align: left;
+    width: 30%;
+}
+  
+.pend img {
+    width: 30%;
+    margin-bottom: 30px;
+}
+  
+.pend input{
+    width: 30%;
+}
+  
+.menuzito{
+    display: none;
+}
+
+.menuhito {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30%;
+}
+  
+.menuhito li {
+    display: block;
+    margin-bottom: 10px;
+    align-items: center;
+}
+  
+.menuhito a {
+    display: block;
+    background-color: #9D86BC;
+    color: #e5dff3;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.aaaa {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20%;
+    width: 100px;
+}
+  
+.menuhito a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* pag_adm */
+
+.pag_adm {
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.pag_adm li {
+    margin: 10px 0;
+}
+
+.pag_adm li a {
+    text-decoration: none;
+    color: #372169;
+    background-color: #9d86bc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: block;
+    width: 200px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    padding: 20px;
+}
+
+.pag_adm li a:hover {
+    background-color: #281D40;
+    color: #fff;
+}
+
+  
+
+/*resposividade*/
+
+@media screen and (max-width: 350px) {
+    .login-screen {
+        width: 90%;
+    }
+
+    #galeria{
+        width: 100%;
+        display: block;
+        align-content: center;
+    }
+
+    #galeria img{
+        width: 40%;
+    }
+
+    .item{
+        margin-left: 30%;
+    }
+    
+    .tatuador{
+        width: 40%;
+        height: 40%;
+    }
+
+    .port{
+        position: static;
+        margin: 0%;
+    }
+
+    .portp{
+        margin: 0;
+    }
+    
+    .portp .perfil{
+        height: 50%;
+        width: 50%;
+        margin: 100px;
+    }
+    
+    .portfolio{
+        height: 40%;
+        width: 40%;
+        padding: 100px;
+    }
+
+    .pend{
+        margin: 0;
+        margin-bottom: 10%;
+        width: 70%;
+    }
+
+    .avaliacoes{
+        margin: 0;
+    }
+
+    .avaliacoes .input{
+        width: 150%;
+        margin-left: -30%;
+    }
+
+    .avaliacoes .submit{
+        width: 100%;
+    }
+
+    .avaliacao p{
+        width: 400px;
+    }
+
+    .menuzito{
+        display: block;
+        margin: auto;
+        margin-top: 20%;
+        background-color: inherit;
+        border: 0;
+    }
+
+    .menuzito img{
+        width: 100px;
+        height: 100px;
+    }
+
+    nav{
+        display: none;
+    }
+
+    .temp{
+        display: none;
+    }
+}
