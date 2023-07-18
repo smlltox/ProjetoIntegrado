@@ -1,145 +1,63 @@
--- Table: public.avaliacao
+CREATE TABLE tatuador(
+	id SERIAL PRIMARY KEY,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	nome VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL,
+	descr VARCHAR(300) NOT NULL,
+	telf VARCHAR(15) NOT NULL,
+	ftPerfil VARCHAR(100)
+);
 
--- DROP TABLE IF EXISTS public.avaliacao;
+CREATE TABLE usuarios(
+	id SERIAL PRIMARY KEY,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	nome VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL,
+	telf VARCHAR(15) NOT NULL
+);
 
-CREATE TABLE IF NOT EXISTS public.avaliacao
-(
-    ida integer NOT NULL DEFAULT nextval('avaliacao_id_seq'::regclass),
-    estrelas integer NOT NULL,
-    descr character varying(200) COLLATE pg_catalog."default",
-    dta date DEFAULT CURRENT_DATE,
-    cliente integer,
-    CONSTRAINT avaliacao_pkey PRIMARY KEY (ida),
-    CONSTRAINT avaliacao_cliente_fkey FOREIGN KEY (cliente)
-        REFERENCES public.usuarios (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
+CREATE TABLE portfolio(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+	tatuador INTEGER NOT NULL,
+	FOREIGN KEY (tatuador) REFERENCES tatuador (id)
+);
 
-TABLESPACE pg_default;
+CREATE TABLE imgportf(
+    id SERIAL PRIMARY KEY,
+    link_ VARCHAR(100) NOT NULL,
+    data_upload DATE DEFAULT CURRENT_DATE,
+    destaque BOOLEAN NOT NULL,
+    descricao VARCHAR(300),
+    port INTEGER NOT NULL,
+	FOREIGN KEY (port) REFERENCES portfolio (id)
+);
 
-ALTER TABLE IF EXISTS public.avaliacao
-    OWNER to postgres;
+CREATE TABLE avaliacao(
+    ida SERIAL PRIMARY KEY,
+    estrelas INTEGER NOT NULL,
+    dta DATE DEFAULT CURRENT_DATE,
+    descr VARCHAR(300) NOT NULL,
+    cliente INTEGER NOT NULL,
+	FOREIGN KEY (cliente) REFERENCES usuarios (id)
+);
 
--- Table: public.imgportf
-
--- DROP TABLE IF EXISTS public.imgportf;
-
-CREATE TABLE IF NOT EXISTS public.imgportf
-(
-    id integer NOT NULL DEFAULT nextval('imgportf_id_seq'::regclass),
-    link_ character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    data_upload date DEFAULT CURRENT_DATE,
-    destaque boolean,
-    descricao character varying(300) COLLATE pg_catalog."default",
-    port integer,
-    CONSTRAINT imgportf_pkey PRIMARY KEY (id),
-    CONSTRAINT imgportf_port_fkey FOREIGN KEY (port)
-        REFERENCES public.portfolio (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.imgportf
-    OWNER to postgres;
-
--- Table: public.orcamentos
-
--- DROP TABLE IF EXISTS public.orcamentos;
-
-CREATE TABLE IF NOT EXISTS public.orcamentos
-(
-    id integer NOT NULL DEFAULT nextval('orcamentos_id_seq'::regclass),
-    data_solc date DEFAULT CURRENT_DATE,
-    tamanho integer NOT NULL,
-    local_corpo character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    preco real,
-    aprovado boolean,
-    referencia1 character varying(100) COLLATE pg_catalog."default",
-    referencia2 character varying(100) COLLATE pg_catalog."default",
-    referencia3 character varying(100) COLLATE pg_catalog."default",
-    referencia4 character varying(100) COLLATE pg_catalog."default",
-    referencia5 character varying(100) COLLATE pg_catalog."default",
-    cliente integer,
-    tt_desejado integer NOT NULL,
-    descr text COLLATE pg_catalog."default",
-    CONSTRAINT orcamentos_pkey PRIMARY KEY (id),
-    CONSTRAINT orcamentos_cliente_fkey FOREIGN KEY (cliente)
-        REFERENCES public.usuarios (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT orcamentos_tt_desejado_fkey FOREIGN KEY (tt_desejado)
-        REFERENCES public.tatuador (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.orcamentos
-    OWNER to postgres;
-
--- Table: public.portfolio
-
--- DROP TABLE IF EXISTS public.portfolio;
-
-CREATE TABLE IF NOT EXISTS public.portfolio
-(
-    id integer NOT NULL DEFAULT nextval('portfolio_id_seq'::regclass),
-    nome character varying(100) COLLATE pg_catalog."default",
-    tatuador integer,
-    CONSTRAINT portfolio_pkey PRIMARY KEY (id),
-    CONSTRAINT portfolio_tatuador_fkey FOREIGN KEY (tatuador)
-        REFERENCES public.tatuador (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.portfolio
-    OWNER to postgres;
-
--- Table: public.tatuador
-
--- DROP TABLE IF EXISTS public.tatuador;
-
-CREATE TABLE IF NOT EXISTS public.tatuador
-(
-    id integer NOT NULL DEFAULT nextval('tatuador_id_seq'::regclass),
-    nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    senha character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    descr character varying(300) COLLATE pg_catalog."default" NOT NULL,
-    telf character varying(15) COLLATE pg_catalog."default" NOT NULL,
-    ftperfil character varying(100) COLLATE pg_catalog."default",
-    CONSTRAINT tatuador_pkey PRIMARY KEY (id),
-    CONSTRAINT tatuador_email_key UNIQUE (email)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.tatuador
-    OWNER to postgres;
-
--- Table: public.usuarios
-
--- DROP TABLE IF EXISTS public.usuarios;
-
-CREATE TABLE IF NOT EXISTS public.usuarios
-(
-    id integer NOT NULL DEFAULT nextval('usuarios_id_seq'::regclass),
-    nome character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    email character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    senha character varying(100) COLLATE pg_catalog."default" NOT NULL,
-    telf character varying(15) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT usuarios_pkey PRIMARY KEY (id),
-    CONSTRAINT usuarios_email_key UNIQUE (email)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.usuarios
-    OWNER to postgres;
+CREATE TABLE orcamentos(
+    id SERIAL PRIMARY KEY,
+    tamanho VARCHAR(100) NOT NULL,
+    data_solc DATE DEFAULT CURRENT_DATE,
+    aprovado BOOLEAN NOT NULL,
+    local_corpo VARCHAR(300) NOT NULL,
+    tamanho INTEGER NOT NULL,
+	descr VARCHAR(300),
+	preco INTEGER,
+	referencia1 VARCHAR(100) NOT NULL,
+	referencia2 VARCHAR(100),
+	referencia3 VARCHAR(100),
+	referencia4 VARCHAR(100),
+	referencia5 VARCHAR(100),
+	cliente INTEGER NOT NULL,
+	tt_desejado INTEGER NOT NULL,
+	FOREIGN KEY (cliente) REFERENCES usuarios (id),
+	FOREIGN KEY (tt_desejado) REFERENCES tatuador (id)
+);
