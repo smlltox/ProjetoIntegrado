@@ -2,6 +2,23 @@ body{
     background-color:#0D0D0D;
 }
 
+button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    width: 15%;
+    height: 80px;
+    background-color: #372169;
+    font-size: 20px;
+    float: right;
+}
+
+button a{
+    text-decoration: none;
+    color: white;
+}
+
 button img{
     width: 30px;
     height: 30px;
@@ -43,7 +60,8 @@ button img{
 .select-dropdown:focus {
     outline: none;
     border-color: #6a5acd;
-}  
+} 
+
 
 /*menu*/
 
@@ -333,7 +351,7 @@ nav li:nth-child(5) a {
     color: #ccc;
     margin: 15px;
     font-size: 16px;
-    max-width: 200px;
+    max-width: 300px;
     text-align: justify;
 }
 
@@ -352,15 +370,23 @@ nav li:nth-child(5) a {
     align-items: center;
 }
 
-.avaliacao img {
+#foto_aval{
     width: 50px;
     padding: 10px;
     border-radius: 50%;
+    margin-top: -70px;
 }
 
-.avaliacao .aval{
-    display: block;
-    margin-top: 10px;
+.info {
+    display: flex; 
+    align-items: center; 
+    margin: 10px;
+    border-radius: 2%;
+    background-color: #000000;
+  }
+
+.avaliacoes .aval{
+    flex-grow: 1;
 }
 
 .avaliacoes #avl{
@@ -369,13 +395,22 @@ nav li:nth-child(5) a {
 }
 
 h3{
+    margin-top: 50px;
     color: #ccc;
 }
 
 .avaliacoes .input{
     margin-top: 30px;
-    width: 80%;
-    height: 40px;
+    width: 77%;
+    height: 50px;
+}
+
+.avaliacoes .star{
+    margin-top: 30px;
+    border-radius: 15%;
+    padding: 10px;
+    width: 7%;
+    height: 50px;
 }
 
 .avaliacoes .submit{
@@ -388,9 +423,10 @@ h3{
     background-color: #281D40;
 }
 
-.avaliacao p{
-    max-width: 50%;
-    color: #ccc;
+p{
+    max-width: 100%;
+    color: #dfdfdf;
+    padding-bottom: 20px;
 }
 
 /*pg error*/
@@ -459,19 +495,25 @@ h3{
 /*orçamentos pendentes*/
 
 #pend{
-    width: 80%;
+    width: 90%;
+}
+
+.orcs {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .pend {
-    display: inline-block;
     background-color: #0D0D0D;
     padding: 30px;
-    margin: 30px;
+    margin: 10px;
     border-radius: 5%;
     width: 30%;
-    height: 20%;
+    min-width: 250px;
+    max-width: 350px;
+    height: auto;
 }
-  
+
 .pend h2 {
     font-size: 26px;
     font-weight: bold;
@@ -480,21 +522,21 @@ h3{
     color: #ccc;
     text-align: left;
 }
-  
+
 .pend p {
     font-size: 20px;
     color: #ccc;
     text-align: left;
-    width: 30%;
 }
-  
+
 .pend img {
-    width: 30%;
-    margin-bottom: 30px;
+    width: 40%;
+    margin-bottom: 10px;
 }
-  
-.pend input{
-    width: 30%;
+
+.pend input {
+    width: 100%;
+    margin-bottom: 10px;
 }
   
 .menuzito{
@@ -541,6 +583,7 @@ h3{
 .pag_adm {
     text-decoration: none;
     font-family: Arial, sans-serif;
+    font-size: 23px;
     display: flex;
     flex-direction: column; 
     justify-content: center;
@@ -571,7 +614,20 @@ h3{
     color: #fff;
 }
 
+/*força da senha*/
+.password-strength {
+    width: 100%;
+    height: 10px;
+    background-color: #f1f1f1;
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
   
+  .password-strength .bar {
+    height: 100%;
+    transition: width 0.3s;
+  }
 
 /*resposividade*/
 

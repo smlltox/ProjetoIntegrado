@@ -1,3 +1,5 @@
+<!--não implementada-->
+
 <?php
 session_start();
 
@@ -39,7 +41,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <img class="portfolio" src="src/addimg.png">
                 <img class="portfolio" src="src/addimg.png">
                 <img class="portfolio" src="src/addimg.png">
-                <button class="adminButton" style="display:none;">Editar portfolio</button>
             </ul>
             <ul id="minhaLista2" style="display:none;">  
                 <img class="portfolio" src="src/addimg.png">
@@ -54,7 +55,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <img class="portfolio" src="src/addimg.png">
                 <img class="portfolio" src="src/addimg.png">
                 <img class="portfolio" src="src/addimg.png">
-                <button class="adminButton" style="display:none;">Editar portfolio</button>
             </ul>
         </div>    
         

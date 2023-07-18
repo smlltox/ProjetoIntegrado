@@ -6,21 +6,50 @@
         <link rel="stylesheet" type="text/css" href="style.css" media="screen"></link>
         <link rel="icon" href="src/icon.png" type="image/png"></link>
         <script src="script.js"></script>
-        <title>Cadastro | SeivaBrutaTattoo</title>
+        <title>Cadastro Tatuador | SeivaBrutaTattoo</title>
     </head>
     <body>
         <div class="login-screen">
             <img src="src/icon.png"></img>
-            <h1>Cadastre-se:</h1>
+            <h1>Cadastrar Tatuador:</h1>
             <form action="cad_adm.php" method="POST">
-                <input class="input" type="text" placeholder="Nome Completo" name="nome" required></input>
-                <input class="input" type="number" placeholder="Telefone" name="telf" required></input>
-                <input class="input" type="text" placeholder="E-mail" name="email" required></input>
-                <input class="input" type="text" placeholder="Breve descrição" name="descr" required></input>
-                <input class="input" type="ftperfil" placeholder="Foto de Perfil" name="ftperfil" required></input>
-                <input class="input" type="password" placeholder="Senha" name="senha" required></input>
-                <input class="submit" type="submit" value="Cadastre-se"></input>
+                <input class="input" type="text" placeholder="Nome Completo" name="nome" required>
+                <input class="input" type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX" name="telf" required>
+                <input class="input" type="email" placeholder="E-mail" name="email" required>
+                <input class="input" type="text" placeholder="Breve descrição" name="descr" required>
+                <input class="input" type="ftperfil" placeholder="Foto de Perfil" name="ftperfil" required>
+                <input class="input" type="password" placeholder="Senha" name="senha" oninput="validatePassword(this)" minlength="6" required>
+                <div id="password-validation-message" style="color:rgb(134, 132, 132);"></div>
+                <input class="submit" type="submit" value="Cadastre-se">
             </form>
           </div>
+          <script>
+            // Função para formatar automaticamente o campo de telefone
+            function formatarTelefone(input) {
+                const value = input.value.replace(/\D/g, '');
+                input.value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+            }
+    
+            // Adiciona um evento de digitação ao campo de telefone
+            const telefoneInput = document.getElementById('telefone');
+            telefoneInput.addEventListener('input', function() {
+                formatarTelefone(this);
+            });
+
+        //senha
+        function validatePassword(input) {
+            const password = input.value;
+            const passwordMessage = document.getElementById('password-validation-message');
+            const pattern = /(?=.*[0-9!@#$%^&*()_+\[\]{};':"\\|,.<>/?])/;
+
+            if (password.length < 6 || !pattern.test(password)) {
+                passwordMessage.textContent = "A senha deve ter pelo menos 6 caracteres e conter pelo menos um número ou símbolo.";
+                input.setCustomValidity("Senha inválida");
+            } else {
+                passwordMessage.textContent = "";
+                input.setCustomValidity("");
+            }
+        }
+        </script>
     </body>
 </html>

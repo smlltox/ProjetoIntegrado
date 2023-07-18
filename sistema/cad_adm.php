@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // se a inserção deu certo
     if ($stmt->rowCount() > 0) {
         echo "<script>alert('Cadastro realizado com sucesso!');
-        window.location.href = 'login.html';</script>";
+        window.location.href = 'login_adm.html';</script>";
     } else {
         echo "<script>alert('Erro ao cadastrar. Tente novamente.');</script>";
     }

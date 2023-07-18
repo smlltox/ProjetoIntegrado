@@ -34,8 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
   setTimeout(function() {
     var objeto = document.querySelector('.login-screen');
-    objeto.style.transform = "translateY(700px)";
+    if (objeto) {
+      objeto.style.transform = "translateY(700px)";
+    }
   }, 500); // atraso de 500ms
+});
+
+//botao
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var objeto = document.querySelector('button');
+    if (objeto) {
+      objeto.style.transform = "translateY(50px)";
+    }
+  }, 1000); // atraso de 500ms
 });
 
 //imagens em destque no index
